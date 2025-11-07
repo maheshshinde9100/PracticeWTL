@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student CRUD</title>
+</head>
+
+<body>
+    <h2>Student CRUD App</h2>
+
+    <input id="name" placeholder="Enter name"><br><br>
+    <input id="email" placeholder="Enter email"><br><br>
+    <input id="age" placeholder="Enter age"><br><br>
+    <input id="marks" placeholder="Enter marks"><br><br>
+    <button onclick="createData()">Add Student</button>
+
+    <h3>Student Records</h3>
+    <div id="output"></div>
+
+    <script>
+        async function createData() {
+            let n = document.getElementById("name").value;
+            let e = document.getElementById("email").value;
+            let a = document.getElementById("age").value;
+            let m = document.getElementById("marks").value;
+
+            let data = new FormData();
+            data.append("action", "create");
+            data.append("name", n);
+            data.append("email", e);
+            data.append("age", a);
+            data.append("marks", m);
+            
+            const res = await fetch("http://localhost/assignment7/backend.php", { method: "POST", body: data });
+            document.getElementById("output").innerHTML = await res.text();
+        }
+
+        async function getData() {
+            const res = await fetch("http://localhost/assignment7/backend.php");
+            document.getElementById("output").innerHTML = await res.text();
+        }
+
+        async function deletedata(name) {
+            let data = new FormData();
+            data.append("action", "delete");
+            data.append("name", name);
+            const res = await fetch("http://localhost/assignment7/backend.php", { method: "POST", body: data });
+            document.getElementById("output").innerHTML = await res.text();
+        }
+
+        async function updatedata(name) {
+            let newMarks = prompt("Enter new marks:");
+            if (!newMarks) return;
+            let data = new FormData();
+            data.append("action", "update");
+            data.append("name", name);
+            data.append("marks", newMarks);
+            const res = await fetch("http://localhost/assignment7/backend.php", { method: "POST", body: data });
+            document.getElementById("output").innerHTML = await res.text();
+        }
+
+        window.onload = getData;
+    </script>
+</body>
+
+</html>
