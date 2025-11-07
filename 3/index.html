@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - assignment</title>
+</head>
+<body onload="getData()">
+    <table id="table" border="5">
+    </table>
+</body>
+<script>
+    async function getData(){
+        let table = document.getElementById('table') 
+        const res = await fetch("http://127.0.0.1:5500/3/data.json")
+        const data = await res.json()
+        const columns = Object.keys(data[0])
+        table.innerHTML = `
+        <thead>
+            <tr>
+            ${columns.map(col => `<th>${col}</th>`).join('')}
+            </tr>
+        </thead>
+        <tbody>
+            ${data.map(user =>
+                `<tr>
+                    ${columns.map(col => `<td>${user[col]}</td>`).join('')}
+                </tr>`
+            ).join('')}
+            </tbody>
+        `;
+    }
+</script>
+</html>
