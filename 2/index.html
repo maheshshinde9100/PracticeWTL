@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO list</title>
+</head>
+
+<body>
+    <input id="input-task" type="text" placeholder="enter task to add">
+    <button onclick="addTask()">Add Task</button>
+    <br>
+    <ul id="task-list"></ul>
+</body>
+<script>
+    const taskList = document.getElementById('task-list')
+    function addTask() {
+        let input = document.getElementById('input-task').value;
+        let listItem = document.createElement('li')
+
+        let title = document.createElement('h3')
+        let updateBtn = document.createElement('button')
+        let deleteBtn = document.createElement('button')
+        
+        title.textContent = "Task : "+input;
+        updateBtn.textContent = "update"
+        deleteBtn.textContent = "delete"
+        
+        listItem.append(title,updateBtn,deleteBtn)
+
+        taskList.appendChild(listItem)
+
+        updateBtn.addEventListener('click',()=>{
+            let updatedTask = prompt('Enter updated task : ')
+            if(updatedTask){
+                title.textContent = updatedTask
+            }
+        })
+        deleteBtn.addEventListener('click',(e)=>{
+            e.target.parentElement.remove()
+        })
+
+    }
+
+</script>
+
+</html>
