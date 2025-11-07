@@ -1,17 +1,17 @@
-1. Write a program to design a responsive homepage (e.g. for an E
+1. ✅Write a program to design a responsive homepage (e.g. for an E
 commerce or Hospital website) using HTML, CSS, and Bootstrap.
 
-2.  Create a dynamic To-do List web application using HTML, CSS, and 
+2. ✅Create a dynamic To-do List web application using HTML, CSS, and 
 JavaScript.
 
-3.  Write a JavaScript program to fetch data from a public API using Fetch 
+3. ✅Write a JavaScript program to fetch data from a public API using Fetch 
 and Async/Await. Display the results dynamically on a web page using 
 DOM manipulation. 
 
-4. Create a React application using JSX with functional components. Pass 
-data using props and manage state using the useState hook.
+4. ✅Create a React application using JSX with functional components. Pass 
+data using props and manage state using the useState hook.(Counter Application)
 
-5.  Write a React program that uses Axios to fetch data from a public or 
+5. Write a React program that uses Axios to fetch data from a public or 
 back-end API, displays the response in a component, and manages 
 loading and error states on the front end .
 
