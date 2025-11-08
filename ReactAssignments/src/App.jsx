@@ -3,14 +3,15 @@ import Assignment04 from "./Assignment04";
 import Assignment05 from "./Assignment05";
 import Assignment06 from "./Assignment06";
 import Login from "./Login";
+import Assignment08 from "./Assignment08";
 
 function App(){
-  const [users, setUsers] = useState([]);
-  const [showLogin, setShowLogin] = useState(false);
+  // const [users, setUsers] = useState([]);
+  // const [showLogin, setShowLogin] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowLogin(false)}>Register</button>
+      {/* <button onClick={() => setShowLogin(false)}>Register</button>
       <button onClick={() => setShowLogin(true)}>Login</button>
       <hr />
 
@@ -18,7 +19,10 @@ function App(){
         <Login users={users} />
       ) : (
         <Assignment06 setUsers={setUsers} users={users} />
-      )}
+      )} */}
+
+      {/* ------------------- */}
+      <Assignment08/>
     </>
   );
 };
